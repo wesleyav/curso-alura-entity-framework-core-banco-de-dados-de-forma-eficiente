@@ -4,8 +4,9 @@ using System;
 namespace Alura.Loja.Testes.ConsoleApp
 {
     public class LojaContext : DbContext
-    {        
+    {
         internal DbSet<Produto> Produtos { get; set; }
+        internal DbSet<Compra> Compras { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
