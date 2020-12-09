@@ -15,6 +15,34 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
+            using (var contexto = new LojaContext())
+            {
+                var cliente = contexto
+                    .Clientes
+                    .Include(c => c.EnderecoDeEntrega)
+                    .FirstOrDefault();
+
+                Console.WriteLine($"Endereço de entrega: {cliente.EnderecoDeEntrega}");
+
+                var produto = contexto
+                    .Produtos
+                    .Include(p => p.Compras)
+                    .Where(p => p.Id == 9004)
+                    .FirstOrDefault();
+
+                Console.WriteLine("Mostrando as compras do produto {produto.Nome");
+                foreach (var item in produto.Compras)
+                {
+                    Console.WriteLine(item);
+                }
+
+
+            }
+
+        }
+
+        private static void ExibeProdutosDaPromocao()
+        {
             using (var contexto2 = new LojaContext())
             {
                 var promocao = contexto2
@@ -30,7 +58,6 @@ namespace Alura.Loja.Testes.ConsoleApp
                     Console.WriteLine(item.Produto);
                 }
             }
-
         }
 
         private static void IncluirPromocao()
