@@ -8,7 +8,7 @@ using Alura.Loja.Testes.ConsoleApp;
 namespace Alura.Loja.Testes.ConsoleApp.Migrations
 {
     [DbContext(typeof(LojaContext))]
-    [Migration("20201209083129_Unidade")]
+    [Migration("20201209084703_Unidade")]
     partial class Unidade
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,7 @@ namespace Alura.Loja.Testes.ConsoleApp.Migrations
 
                     b.Property<double>("PrecoUnitario");
 
-                    b.Property<string>("unidade");
+                    b.Property<string>("Unidade");
 
                     b.HasKey("Id");
 

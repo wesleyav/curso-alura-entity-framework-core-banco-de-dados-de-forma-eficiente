@@ -8,9 +8,10 @@ using Alura.Loja.Testes.ConsoleApp;
 namespace Alura.Loja.Testes.ConsoleApp.Migrations
 {
     [DbContext(typeof(LojaContext))]
-    partial class LojaContextModelSnapshot : ModelSnapshot
+    [Migration("20201209084509_Inicial")]
+    partial class Inicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -25,9 +26,7 @@ namespace Alura.Loja.Testes.ConsoleApp.Migrations
 
                     b.Property<string>("Nome");
 
-                    b.Property<double>("PrecoUnitario");
-
-                    b.Property<string>("Unidade");
+                    b.Property<double>("Preco");
 
                     b.HasKey("Id");
 
