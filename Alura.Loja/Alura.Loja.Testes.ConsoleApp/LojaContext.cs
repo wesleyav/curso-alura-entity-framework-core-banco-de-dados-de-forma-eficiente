@@ -13,7 +13,17 @@ namespace Alura.Loja.Testes.ConsoleApp
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PromocaoProduto>().HasKey(pp => new { pp.PromocaoId, pp.ProdutoId });
-            base.OnModelCreating(modelBuilder);
+
+            modelBuilder
+                .Entity<Endereco>()
+                .Property<int>("ClienteId");
+
+            modelBuilder
+                .Entity<Endereco>()
+                .HasKey("ClienteId");
+            
+            
+            //base.OnModelCreating(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
