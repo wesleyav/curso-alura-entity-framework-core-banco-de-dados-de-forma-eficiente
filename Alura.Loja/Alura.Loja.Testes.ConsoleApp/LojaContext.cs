@@ -3,10 +3,11 @@ using System;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    public class LojaContext : DbContext
+    internal class LojaContext : DbContext
     {
-        internal DbSet<Produto> Produtos { get; set; }
-        internal DbSet<Compra> Compras { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Compra> Compras { get; set; }
+        public DbSet<Promocao> Promocoes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
